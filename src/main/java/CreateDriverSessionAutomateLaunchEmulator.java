@@ -7,13 +7,15 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CreateDriverSession {
+public class CreateDriverSessionAutomateLaunchEmulator {
     public static void main(String[] args) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, "pixel_4");
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         caps.setCapability(MobileCapabilityType.UDID, "emulator-5554");
+        caps.setCapability("avd", "Pixel_4");
+        caps.setCapability("avdLaunchTimeout", 360000);
         String appUrl = System.getProperty("user.dir") + File.separator + "src" + File.separator
                 + "main" + File.separator + "resources" + File.separator + "ApiDemos-debug.apk";
 //        caps.setCapability("appPackage", "io.appium.android.apis");
